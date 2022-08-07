@@ -7,9 +7,4 @@ from django.db.models import Value, F, Func, ExpressionWrapper,DecimalField
 from django.contrib.contenttypes.models import ContentType
 
 def say_hello(request):
-    content_type = ContentType.objects.get_for_model(Product) # This gonna be the Product ID in the contenttype table in the DataBase
-    queryset=TaggedItem.objects.select_related('tag').filter(
-        content_type=content_type,
-        object_id = 1
-    )
-    return render(request, 'hello.html', {'name': 'Mosh', 'result': list(queryset)})
+    return render(request, 'hello.html', {'name': 'Mosh',})
