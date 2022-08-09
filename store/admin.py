@@ -19,6 +19,7 @@ class CustomerAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'membership']
     list_editable = ['membership']
     list_per_page: int = 10
+    search_fields = ['first_name__istartswith', 'last_name']
 
 @admin.register(models.Order)
 class OrderAdmin(admin.ModelAdmin):
